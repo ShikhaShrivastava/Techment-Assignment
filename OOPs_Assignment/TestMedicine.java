@@ -1,5 +1,7 @@
 package com.techment.OOPs_Assignment;
 
+import java.util.Random;
+
 abstract class Medicine
 {
 	float price;
@@ -41,26 +43,24 @@ public class TestMedicine {
 
 	public static void main(String[] args) {
 		Medicine medicine[]=new Medicine[5];
-		double i= Math.random()*3;
-		int j=(int)i;
-		System.out.println(j);
-		switch(j)
+		Random random = new Random();
+		if(random.nextInt(3)==3)
 		{
-		case 1: medicine[1]=new Tablet();
-				medicine[0].displayLabel();
-				medicine[1].displayLabel();
-				break;
-		case 2: medicine[3]=new Syrup();
-				medicine[2].displayLabel();
-				medicine[3].displayLabel();
-				break;
-		case 3: medicine[5]=new Ointment();
-				medicine[4].displayLabel();
-				medicine[5].displayLabel();
-				break;
-				
-		default:System.out.println("Invalid Choice");
-		
+			medicine[3]=new Ointment();
+			medicine[3].getDetails();
+			medicine[3].displayLabel();
+		}
+		else if(random.nextInt(3)==2)
+		{
+			medicine[2]=new Tablet();
+			medicine[2].getDetails();
+			medicine[2].displayLabel();
+		}
+		else
+		{
+			medicine[0]=new Syrup();
+			medicine[0].getDetails();
+			medicine[0].displayLabel();
 		}
 	}
 
